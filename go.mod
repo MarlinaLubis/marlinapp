@@ -3,7 +3,7 @@ module github.com/MarlinaLubis/marlinapp
 go 1.20
 
 require (
-	github.com/MarlinaLubis/be_bap v0.0.1
+	github.com/MarlinaLubis/be_bap v0.0.6
 	github.com/aiteung/atdb v0.0.7
 	github.com/aiteung/musik v0.0.5
 	github.com/aiteung/presensi v0.0.25

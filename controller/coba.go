@@ -89,8 +89,9 @@ func InsertMahasiswa(c *fiber.Ctx) error {
 		mahasiswa.Nama,
 		mahasiswa.Phone_number,
 		mahasiswa.Email,
+		mahasiswa.Jurusan,
 		mahasiswa.Jam_sidang,
-		mahasiswa.Harisidang)
+		mahasiswa.Hari_sidang)
 	return c.JSON(map[string]interface{}{
 		"status":      http.StatusOK,
 		"message":     "Data Mahasiswa Berhasil Disimpan.",
@@ -194,5 +195,10 @@ func GetPresensiID(c *fiber.Ctx) error {
 			"message": fmt.Sprintf("Error retrieving data for id %s", id),
 		})
 	}
+	return c.JSON(ps)
+}
+
+func GetAllBap(c *fiber.Ctx) error {
+	ps := inimodul.GetAllBap(config.Ulbimongoconn, "bap")
 	return c.JSON(ps)
 }
