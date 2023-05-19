@@ -162,7 +162,7 @@ func GetAll(c *fiber.Ctx) error {
 	return c.JSON(nl)
 }
 
-func GetAllPresensiin(c *fiber.Ctx) error {
+func GetAllPresensi(c *fiber.Ctx) error {
 	ps := inimodullatihan.GetAllPresensi(config.Ulbimongoconn, "presensi1")
 	return c.JSON(ps)
 }
