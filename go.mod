@@ -6,7 +6,7 @@ require (
 	github.com/MarlinaLubis/be_bap v0.0.7
 	github.com/aiteung/atdb v0.0.7
 	github.com/aiteung/musik v0.0.5
-	github.com/aiteung/presensi v0.0.25
+	github.com/aiteung/presensi v0.0.34
 	github.com/gofiber/fiber/v2 v2.42.0
 	github.com/gofiber/websocket/v2 v2.1.4
 	github.com/indrariksa/be_presensi v0.0.8
