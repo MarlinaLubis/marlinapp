@@ -12,6 +12,8 @@ import (
 	cek "github.com/aiteung/presensi"
 	"github.com/gofiber/fiber/v2"
 	inimodullatihan "github.com/indrariksa/be_presensi/module"
+    inituhmodel "github.com/indrariksa/be_presensi/model"
+	inituhmodul "github.com/indrariksa/be_presensi/module"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
@@ -201,4 +203,33 @@ func GetPresensiID(c *fiber.Ctx) error {
 func GetAllBap(c *fiber.Ctx) error {
 	ps := inimodul.GetAllBap(config.Ulbimongoconn, "bap")
 	return c.JSON(ps)
+}
+
+func InsertData(c *fiber.Ctx) error {
+	db := config.Ulbimongoconn
+	var presensi inituhmodel.Presensi
+	if err := c.BodyParser(&presensi); err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+	insertedID, err := inituhmodul.InsertPresensi(db, "presensi",
+		presensi.Longitude,
+		presensi.Latitude,
+		presensi.Location,
+		presensi.Phone_number,
+		presensi.Checkin,
+		presensi.Biodata)
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+	return c.Status(http.StatusOK).JSON(fiber.Map{
+		"status":      http.StatusOK,
+		"message":     "Data berhasil disimpan.",
+		"inserted_id": insertedID,
+	})
 }
