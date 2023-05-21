@@ -12,8 +12,8 @@ import (
 	cek "github.com/aiteung/presensi"
 	"github.com/gofiber/fiber/v2"
 	inimodullatihan "github.com/indrariksa/be_presensi/module"
-    inituhmodel "github.com/indrariksa/be_presensi/model"
-	inituhmodul "github.com/indrariksa/be_presensi/module"
+    itumodel "github.com/indrariksa/be_presensi/model"
+	itumodul "github.com/indrariksa/be_presensi/module"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
@@ -207,14 +207,14 @@ func GetAllBap(c *fiber.Ctx) error {
 
 func InsertData(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
-	var presensi inituhmodel.Presensi
+	var presensi itumodel.Presensi
 	if err := c.BodyParser(&presensi); err != nil {
 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
 			"status":  http.StatusInternalServerError,
 			"message": err.Error(),
 		})
 	}
-	insertedID, err := inituhmodul.InsertPresensi(db, "presensi",
+	insertedID, err := itumodul.InsertPresensi(db, "presensi",
 		presensi.Longitude,
 		presensi.Latitude,
 		presensi.Location,
