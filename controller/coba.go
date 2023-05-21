@@ -214,7 +214,7 @@ func InsertData(c *fiber.Ctx) error {
 			"message": err.Error(),
 		})
 	}
-	insertedID, err := itumodul.InsertPresensi(db, "presensi",
+	insertedID, err := itumodul.InsertPresensi(db, "presensi1",
 		presensi.Longitude,
 		presensi.Latitude,
 		presensi.Location,
