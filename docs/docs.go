@@ -20,7 +20,7 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/presensi": {
+        "/presensi1": {
             "get": {
                 "description": "Mengambil semua data presensi.",
                 "consumes": [

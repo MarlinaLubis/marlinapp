@@ -171,7 +171,7 @@ func GetAll(c *fiber.Ctx) error {
 // @Accept json
 // @Produce json
 // @Success 200 {object} Presensi
-// @Router /presensi [get]
+// @Router /presensi1 [get]
 func GetAllPresensi(c *fiber.Ctx) error {
 	ps := inimodullatihan.GetAllPresensi(config.Ulbimongoconn, "presensi1")
 	return c.JSON(ps)

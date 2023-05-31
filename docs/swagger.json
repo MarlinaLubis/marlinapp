@@ -17,7 +17,7 @@
     "host": "lubisapp.herokuapp.com",
     "basePath": "/",
     "paths": {
-        "/presensi": {
+        "/presensi1": {
             "get": {
                 "description": "Mengambil semua data presensi.",
                 "consumes": [
