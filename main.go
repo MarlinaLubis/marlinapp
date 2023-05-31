@@ -13,6 +13,8 @@ import (
 	"github.com/MarlinaLubis/marlinapp/url"
 
 	"github.com/gofiber/fiber/v2"
+	
+	_ "github.com/MarlinaLubis/marlinapp/docs"
 )
 
 func main() {
